@@ -1,0 +1,15 @@
+.elements__likebut {
+  cursor: pointer;
+  background: transparent;
+  /* position: absolute; */
+  right: 20px;
+  border: none;
+  height: 19px;
+  min-width: 22px;
+  padding: 0;
+  background-image: url(../../../images/elements__like.svg);
+}
+
+.elements__likebut:hover {
+  opacity: 0.5;
+}

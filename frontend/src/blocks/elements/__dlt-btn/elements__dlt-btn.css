@@ -1,0 +1,13 @@
+.elements__dlt-btn {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  height: 19px;
+  width: 18px;
+  padding: 0;
+  background-image: url(../../../images/elements__dlt-btn.svg);
+}

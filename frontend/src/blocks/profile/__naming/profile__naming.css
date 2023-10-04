@@ -1,0 +1,11 @@
+.profile__naming {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+@media screen and (max-width: 996px) {
+  .profile__naming {
+    transform: translate(10px);
+  }
+}

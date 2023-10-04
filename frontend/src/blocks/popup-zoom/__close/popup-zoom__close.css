@@ -1,0 +1,13 @@
+.popup-zoom__close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+@media screen and (max-width: 530px) {
+  .popup-zoom__close {
+    width: 20px;
+    height: 20px;
+    right: 0px;
+  }
+}

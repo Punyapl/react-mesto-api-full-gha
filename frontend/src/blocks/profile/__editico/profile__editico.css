@@ -1,0 +1,7 @@
+@media screen and (max-width: 880px) {
+  .profile__editico {
+    width: 7.5px;
+    height: 7.5px;
+    padding-bottom: 3px;
+  }
+}

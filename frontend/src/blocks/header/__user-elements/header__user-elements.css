@@ -1,0 +1,10 @@
+.header__user-elements {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 996px) {
+  .header__user-elements {
+    display: none;
+  }
+}

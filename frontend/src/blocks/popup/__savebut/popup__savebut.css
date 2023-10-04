@@ -1,0 +1,39 @@
+.popup__savebut {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 18px;
+  position: relative;
+  margin-left: 36px;
+  margin-bottom: 37px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  min-width: 358px;
+  width: min-content;
+  background: #000000;
+  border-radius: 2px;
+
+  color: white;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.popup__savebut:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 530px) {
+  .popup__savebut {
+    margin-top: 15px;
+    margin-left: 22px;
+    padding-left: 82px;
+    padding-right: 82px;
+    min-width: 238px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

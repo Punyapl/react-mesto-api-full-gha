@@ -1,0 +1,12 @@
+.popup__savebut_disabled {
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  cursor: auto;
+}
+
+.popup__savebut_disabled:hover {
+  background: #ffffff;
+}

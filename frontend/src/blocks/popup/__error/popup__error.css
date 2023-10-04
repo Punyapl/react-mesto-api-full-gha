@@ -1,0 +1,27 @@
+.popup__error {
+  position: absolute;
+  display: none;
+  top: 26px;
+  left: 36px;
+  color: red;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.popup__error:nth-of-type(2) {
+  top: 81px;
+  left: 36px;
+}
+
+@media screen and (max-width: 530px) {
+  .popup__error {
+    top: 26px;
+    left: 22px;
+  }
+
+  .popup__error:nth-of-type(2) {
+    top: 81px;
+    left: 22px;
+  }
+}

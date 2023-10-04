@@ -1,0 +1,6 @@
+.elements__like {
+  display: flex;
+  flex-direction: column;
+  min-height: 35px;
+  min-width: 22px;
+}

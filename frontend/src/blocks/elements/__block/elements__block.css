@@ -1,0 +1,11 @@
+.elements__block {
+  display: flex;
+  position: absolute;
+  bottom: 25px;
+  min-width: 241px;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  padding-top: 20px;
+  margin-left: 21px;
+}
