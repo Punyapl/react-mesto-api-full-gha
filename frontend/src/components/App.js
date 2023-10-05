@@ -44,8 +44,9 @@ function App() {
     auth
       .authorize(email, password)
       .then((data) => {
+        console.log(data.jwt);
         if (data.jwt) {
-          localStorage.setItem("jwt", data.token);
+          localStorage.setItem("jwt", data.jwt);
           setCurrentUserAccount({ loggedIn: true, email: email });
           navigate("/", { replace: true });
         }
@@ -124,13 +125,12 @@ function App() {
   };
 
   const handleUpdateUser = (objUserInfo) => {
-    console.log(objUserInfo);
     const { name, about } = objUserInfo;
 
     api
       .updateUserInfo(name, about)
       .then((userData) => {
-        setCurrentUser(userData);
+        setCurrentUser(userData.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -145,7 +145,7 @@ function App() {
     api
       .updateAvatar(link)
       .then((userData) => {
-        setCurrentUser(userData);
+        setCurrentUser(userData.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -160,7 +160,7 @@ function App() {
     api
       .sentCard(objNewCard)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -184,17 +184,17 @@ function App() {
   };
 
   const handleCardLike = (card) => {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     api
       .changeLikeStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c)),
+          state.map((c) => (c._id === card._id ? newCard.data : c)),
         );
       })
       .catch((err) => {
         console.log(err.status);
-        alert(`Ошибка загрузки данных карточки:\n ${err.status}\n ${err.text}`);
+        alert(`Ошибка в процессе добавления/снятия лайка карточки:\n ${err.status}\n ${err.text}`);
       });
   };
 
@@ -209,6 +209,7 @@ function App() {
   const tokenCheck = () => {
     if (localStorage.getItem("jwt")) {
       const jwt = localStorage.getItem("jwt");
+      console.log(`jwt tokencheck: ${jwt}`);
       auth
         .getContent(jwt)
         .then((res) => {
@@ -238,8 +239,9 @@ function App() {
     if (currentUserAccount.loggedIn) {
       Promise.all([api.getUserInfo(), api.getCardList()])
         .then(([infoData, cardsSectionData]) => {
-          setCurrentUser(infoData);
-          setCards(cardsSectionData);
+          console.log(`app useeffect 243: ${infoData.data}`);
+          setCurrentUser(infoData.data);
+          setCards(cardsSectionData.data);
         })
         .catch((err) => {
           console.dir(err)
