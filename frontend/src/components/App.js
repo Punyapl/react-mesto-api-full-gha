@@ -44,7 +44,7 @@ function App() {
     auth
       .authorize(email, password)
       .then((data) => {
-        if (data.token) {
+        if (data.jwt) {
           localStorage.setItem("jwt", data.token);
           setCurrentUserAccount({ loggedIn: true, email: email });
           navigate("/", { replace: true });
@@ -81,7 +81,7 @@ function App() {
     auth
       .register(email, password)
       .then((res) => {
-        console.log(`Электронная почта ${res.data.email} зарегистрирована`);
+        console.log(`Электронная почта ${res.email} зарегистрирована`);
         setAuthInfo({
           success: true,
           message: "Вы успешно\n зарегистрировались",
@@ -90,6 +90,7 @@ function App() {
         navigate("/sign-in", { replace: true });
       })
       .catch((err) => {
+        console.dir(err)
         console.log(
           `${err.status}\nНе удалось зарегистрировать электронную почту ${email}\n Попробуйте ещё раз`,
         );
@@ -241,6 +242,7 @@ function App() {
           setCards(cardsSectionData);
         })
         .catch((err) => {
+          console.dir(err)
           console.log(err.status);
           alert(`Ошибка загрузки данных:\n ${err.status}\n ${err.text}`);
         });

@@ -55,6 +55,7 @@ module.exports.getUserId = (req, res, next) => {
   User.findById(userId)
     .then((user) => {
       if (!user) {
+        console.log(`Контроллер getUserId. Пользователь с ID = "${userId}" не найден в БД`);
         throw new NotFoundError('Пользователь не найден');
       }
       return res.send({ data: user });
@@ -96,6 +97,7 @@ module.exports.login = (req, res, next) => {
   User.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
+        console.log(`Контроллер логина. Пользователь с email = "${email}" не найден в БД`);
         throw new UnauthorizedError('Неверные данные для входа');
       }
       const passwordCompare = bcrypt.compare(password, user.password);
@@ -105,13 +107,17 @@ module.exports.login = (req, res, next) => {
       const token = jwt.sign({ _id: user._id }, 'secretkey', { expiresIn: '7d' });
       return res.send({ jwt: token });
     })
-    .catch((err) => next(err));
+    .catch((err) => {
+      console.dir(err);
+      next(err);
+    });
 };
 
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
       if (!user) {
+        console.log(`Контроллер getCurrentUser. Пользователь "${req.user._id}" не найден в БД`);
         throw new NotFoundError('Пользователь не найден');
       }
       return res.send({ data: user });

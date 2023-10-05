@@ -130,7 +130,7 @@ export default class Api {
 }
 
 export const api = new Api({
-  baseUrl: "api.mesto-punyapl.nomoredomainsrocks.ru",
+  baseUrl: "https://api.mesto-punyapl.nomoredomainsrocks.ru",
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
     "Content-Type": "application/json",

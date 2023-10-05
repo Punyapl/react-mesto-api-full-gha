@@ -1,4 +1,4 @@
-export const BASE_URL = "api.mesto-punyapl.nomoredomainsrocks.ru";
+export const BASE_URL = "https://api.mesto-punyapl.nomoredomainsrocks.ru";
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
