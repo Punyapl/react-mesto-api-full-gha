@@ -130,9 +130,9 @@ export default class Api {
 }
 
 export const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-69",
+  baseUrl: "api.mesto-punyapl.nomoredomainsrocks.ru",
   headers: {
-    authorization: "9ec15339-0e8c-465b-88d4-b39de961179b",
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
     "Content-Type": "application/json",
   },
 });
