@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 130.193.36.108
+IP 130.193.36.108
 
 Frontend https://mesto-punyapl.nomoredomainsrocks.ru
 
