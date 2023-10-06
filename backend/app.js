@@ -21,11 +21,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://130.193.36.108:27017/mestodb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  family: 4,
-});
+mongoose.connect(MONGODB_URL);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
